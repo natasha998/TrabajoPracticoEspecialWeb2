@@ -67,7 +67,7 @@ class CatController{
 
     function insertarCategorias(){
         
-        $this->authHelper->checkLoggedIn();//chequeo que este iniciada la sesion
+        $this->authHelper->checkLoggedIn();
 
         if(isset($_POST["nombre_c"])&&isset($_POST["tipo_c"])){
             if(!empty($_POST["nombre_c"])&&!empty($_POST["tipo_c"])){
@@ -103,7 +103,7 @@ class CatController{
     }
 
     function borrarCat($id){
-        echo ("Para borrar categorias debe asegurarse que no hay productos ");
+        
         $this->authHelper->checkLoggedIn();
          
         $this->CatModel->borrarCategoria($id);

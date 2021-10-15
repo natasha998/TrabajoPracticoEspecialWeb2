@@ -16,9 +16,9 @@
 		{{/foreach}}
 	</table>
 	
-	<div >
+	<div>
 		<h2>Editar categorias</h2>
-			<form action="editar-cat/18" method="POST"> 
+			<form action="editar-cat/{$categoria->id_categoria}" method="POST"> 
 				<label for="categoria">Editar categoria:</label>
 				<input type="text" id="nombre_c" name="nombre_c_ed">
 				<label for="tipo_c">Tipo de categoria</label>

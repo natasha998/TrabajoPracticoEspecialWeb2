@@ -17,17 +17,17 @@ class UserController{
         $this->view->showLogin();
     }
 
-    function crearUsuario(){
-        if (!empty($_POST['user']) && !empty($_POST['password'])) {
-            $userName = $_POST['user'];
-            $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $this->model->registrar($userName, $userPassword);
-            $this->view->showLogin("", "Usuario registrado");
-        }
-    }
+    // function crearUsuario(){
+    //     if (!empty($_POST['user']) && !empty($_POST['password'])) {
+    //         $userName = $_POST['user'];
+    //         $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    //         $this->model->registrar($userName, $userPassword);
+    //         $this->view->showLogin("", "Usuario registrado");
+    //     }
+    // }
 
     function verificarLogin(){
-
+        
         if (!empty($_POST['userIn']) && !empty($_POST['password'])) {
             $userName = $_POST['userIn'];
             $passwordUser = $_POST['password'];
@@ -37,12 +37,10 @@ class UserController{
             if (password_verify($passwordUser, $user->pass_user)) {
                 session_start();
                 $_SESSION["userIn"] = $user;
-                $this->view->mostrarHome();
-                var_dump("Inicio");
+                $this->view->showLogin("Inicio");
 
             } else {
-                $this->view->showLogin("","No se pudo iniciar");
-                var_dump("no inicio");
+                $this->view->showLogin("Error");
             }
 
         }

@@ -61,9 +61,6 @@ switch ($params[0]) {
       case 'detalle-producto':
          $CatController->verProducto($params[1]);
       break;
-      case 'registrar':
-         $UserController->crearUsuario();
-       break;
       case 'login':
          $UserController->showLogin();
        break;

@@ -1,15 +1,18 @@
 {{include file="./header.tpl"}}
   <h4>Iniciar</h4>
         <form action="acceso" method="POST">
-        <p>{{$registrado}}</p>
+        {if $sesion == "Inicio" }
+            <p>{{$sesion}}</p> 
+        {else}
             <label for="user">Usuario</label>
-            <input type="text" placeholder="usuario" name="userIn">
+            <input type="text" placeholder="usuario" name="userIn" required>
             <label for="password">Contraseña</label>
-            <input type="password" placeholder="contraseña"  name="password">
+            <input type="password" placeholder="contraseña"  name="password" required>
             <input type="submit" value="Iniciar">
         </form>
-        
-    <h4>Registrar</h4>
+        {/if}
+            
+{*         
     <form action="registrar" method="POST">
     <p>{{$error}}</p>
         <label for="user">Usuario</label>
@@ -17,7 +20,7 @@
         <label for="password">Contraseña</label>
         <input type="password" placeholder="contraseña" name="password">
         <input type="submit" value="Registrar">
-    </form>
+    </form> *}
 
     
     {{include file="./footer.tpl"}}

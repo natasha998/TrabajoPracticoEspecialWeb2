@@ -4,12 +4,12 @@
 	<table>
 		{{foreach from=$productos item=$producto}}
 			<tr>
-				<td><a href="producto-unico/{$producto->id_producto}" >{{$producto->nombre_p}}</a></td>
+				<td><a href="detalle-producto/{$producto->id_producto}" >{{$producto->nombre_p}}</a></td>
 				<td>{{$producto->precio_p}}</td>
-				<td>{{$producto->id_producto}}</td>
+				<td>Categoria nro:{{$producto->id_categoria}}</td>
 				<td>
-					<a href="borrar-prod/{$producto->id_producto}" id="borrarProduto" class="btn">Borrar</a>	
-					<a href="editar-prod/26" id="editarProduto" class="btn">Editar</a>	
+					<a href="borrar-prod/{$producto->id_producto}" id="borrarProducto" class="btn">Borrar</a>	
+					<a href="editar-prod/{$producto->id_producto}" id="{$producto->id_producto}" class="btn">Editar</a>	
 				</td>
 			</tr>
 		{{/foreach}}
@@ -39,7 +39,7 @@
 <div class="ocultaEditarProd">
 	<h2>Editar  Productos</h2>
 
-	<form action="editar-prod/26" method="POST"> 
+	<form action="editar-prod/" method="POST"> 
 		<label for="producto">Nombre del producto</label>
 		<input type="text" id="nombre_prod" name="nombre_ed">
 		<label for="marca">Marca</label>

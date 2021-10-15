@@ -4,7 +4,7 @@
 	<table>
 		{{foreach from=$categorias item=$categoria}}
 			<tr>
-				<td><a href="mostrarTablaProductos/{$categoria->id_categoria}">{$categoria->nombre_categoria}</td>
+				<td><a href="productos-categoria/{$categoria->id_categoria}">{$categoria->nombre_categoria}</td>
 				<td>{{$categoria->tipo_categoria}}</td>
 				<td>
 					<a href="borrar-cat/{$categoria->id_categoria}" id="borrarCategoria" class="btn">Borrar</a>	

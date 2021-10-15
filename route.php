@@ -39,7 +39,7 @@ switch ($params[0]) {
      case 'productos':
         $CatController->tablaProducto();
         break;
-     case 'productos-por-categoria':
+     case 'productos-categoria':
         $CatController->mostrarTablaProductosByCat($params[1]);
      break;
       case 'editar-cat':

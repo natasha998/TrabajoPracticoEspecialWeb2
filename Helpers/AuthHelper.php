@@ -6,20 +6,10 @@ class AuthHelper{
     }
 
     function checkLoggedIn(){
-        session_start();
-        if(!isset($_SESSION["user"])){
-            header("Location: ".BASE_URL."login");
+        session_start();//inicio session
+        if(!isset($_SESSION["email_user"])){//verifico que el usuario fue ingresado
+            header("Location: ".BASE_URL."login"); 
+            die();
         }
     }
-
-    function logout(){
-        session_start();
-        session_destroy();
-        $this->showHomeLocation();
-    }
-
-    function showHomeLocation(){
-        header("Location: " . BASE_URL . "home");
-    }
-
 }

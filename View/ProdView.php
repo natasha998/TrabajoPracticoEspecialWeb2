@@ -1,6 +1,6 @@
 <?php
 
-require_once './libs/Smarty.class.php';
+require_once './libs/smarty/Smarty.class.php';
 
 class ProdView{
     private $smarty;
@@ -36,4 +36,9 @@ class ProdView{
     function mostrarProductos(){
         header("Location: ".BASE_URL."productos");
     }
+    
+    function errorAlcargar(){
+        $this->smarty->assign('error', 'No se pudo cargar');
+        $this->smarty->display('templetes/error.tpl');
+    } 
 }

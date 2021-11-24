@@ -1,5 +1,5 @@
 <?php
-require_once './libs/Smarty.class.php';
+require_once './libs/smarty/Smarty.class.php';
 
 class LoginView{
 
@@ -10,8 +10,8 @@ class LoginView{
     }
 
 
-    function showLogin($sesion = ""){
-        $this->smarty->assign('sesion', $sesion);
+    function showLogin($session = ''){
+        $this->smarty->assign('session', $session);
         $this->smarty->display('templetes/usuario-admin.tpl');
     }
     
@@ -19,6 +19,24 @@ class LoginView{
         $this->smarty->assign('home', 'Home');
         $this->smarty->display('templetes/home.tpl');
     }
+
+    function estadoRegistro($estado){
+        if($estado == "Ingreso"){
+            $this->smarty->display('templetes/home.tpl');
+        }else{
+            $this->smarty->assign('registro',$estado);
+            $this->smarty->display('templetes/registro.tpl');
+        }
+        
+        
+    }
+
+    function listarUsuarios($usuarios){
+        $this->smarty->assign('usuarios', $usuarios);
+        $this->smarty->display('templetes/usuarios.tpl');
+    
+    }
+
 }
 
 

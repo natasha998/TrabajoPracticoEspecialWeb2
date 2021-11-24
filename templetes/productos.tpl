@@ -1,15 +1,25 @@
 {{include file="./header.tpl"}}
 	<h2>{{$titulo}}</h2>
-
 	<table>
 		{{foreach from=$productos item=$producto}}
 			<tr>
 				<td><a href="detalle-producto/{$producto->id_producto}" >{{$producto->nombre_p}}</a></td>
 				<td>{{$producto->precio_p}}</td>
-				<td>Categoria nro:{{$producto->id_categoria}}</td>
 				<td>
 					<a href="borrar-prod/{$producto->id_producto}" id="borrarProducto" class="btn">Borrar</a>	
-					<a href="editar-prod/{$producto->id_producto}" id="{$producto->id_producto}" class="btn">Editar</a>	
+					<h2>Editar  Productos</h2>
+					<form action="editar-prod/{$producto->id_producto}" method="POST" id="formulario"> 
+						<label for="producto">Nombre del producto</label>
+						<input type="text" id="nombre_prod" name="nombre_ed">
+						<label for="marca">Marca</label>
+						<input type="text" id="marca_prod" name="marca_ed">
+						<label for="precio">Precio</label>
+						<input type="number" name="precio_ed">
+						<label for="stock">Stock</label>
+						<input type="number"name="stock_ed">		
+						<input type="text" name="categoria" value="{{$producto->id_categoria}}">		
+						<input type="submit" value="Cargar Productos">
+					</form>	
 				</td>
 			</tr>
 		{{/foreach}}
@@ -37,20 +47,7 @@
 </div>
 
 <div class="ocultaEditarProd">
-	<h2>Editar  Productos</h2>
 
-	<form action="editar-prod/" method="POST"> 
-		<label for="producto">Nombre del producto</label>
-		<input type="text" id="nombre_prod" name="nombre_ed">
-		<label for="marca">Marca</label>
-		<input type="text" id="marca_prod" name="marca_ed">
-		<label for="precio">Precio</label>
-		<input type="number" id="precio_prod" name="precio_ed">
-		<label for="stock">Stock</label>
-		<input type="number" id="stock_prod" name="stock_ed">		
-		<input type="text" id="cat_prod" name="categoria" value="categoria">		
-		<input type="submit" value="Cargar Productos">
-	</form>
 </div>
 {{include file="./footer.tpl"}}
 

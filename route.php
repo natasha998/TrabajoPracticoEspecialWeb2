@@ -1,6 +1,7 @@
 <?php
 
 require_once "./Controller/CatController.php";
+require_once "./Controller/ProdController.php";
 require_once "./Controller/UserController.php";
 require_once "./Helpers/AuthHelper.php";
 
@@ -19,8 +20,9 @@ if (!empty($_GET['action'])) {
 $params = explode('/', $action);
 
 $CatController = new CatController();
+$ProdController = new ProdController();
 $UserController = new UserController();
-$AuthHelper = new AuthHelper();
+
 
 
 
@@ -28,7 +30,7 @@ $AuthHelper = new AuthHelper();
 // determina que camino seguir según la acción
 switch ($params[0]) {
      case 'home': 
-       $CatController->mostrarTablaCategoria();
+       $CatController->mostrarHome();
     break;
      case 'categorias': 
         $CatController->mostrarTablaCategoria();
@@ -37,10 +39,10 @@ switch ($params[0]) {
         $CatController->insertarCategorias();
         break;
      case 'productos':
-        $CatController->tablaProducto();
+        $ProdController->tablaProducto();
         break;
      case 'productos-categoria':
-        $CatController->mostrarTablaProductosByCat($params[1]);
+        $ProdController->mostrarTablaProductosByCat($params[1]);
      break;
       case 'editar-cat':
          $CatController->editarCat($params[1]);
@@ -49,17 +51,17 @@ switch ($params[0]) {
          $CatController->borrarCat($params[1]);
       break;
       case 'agregar-producto':
-         $CatController->agregarProducto();
+         $ProdController->agregarProducto();
       break;
 
       case 'editar-prod':
-         $CatController->editarProd($params[1]);
+         $ProdController->editarProd($params[1]);
       break;
       case 'borrar-prod':
-         $CatController->borrarProd($params[1]);
+         $ProdController->borrarProd($params[1]);
       break;
       case 'detalle-producto':
-         $CatController->verProducto($params[1]);
+         $ProdController->verProducto($params[1]);
       break;
       case 'login':
          $UserController->showLogin();
@@ -67,8 +69,20 @@ switch ($params[0]) {
      case 'acceso':
         $UserController->verificarLogin();
       break;
+      case 'registrar':
+         $UserController->registrarUsuario();
+         break;
+      case 'borrar':
+         $UserController->borrarUsuario($params[1]);
+         break;
+      case 'cambiar-rol':
+         $UserController->asignarRol($params[1]);
+      break;
+      case 'lista-de-usuarios':
+         $UserController->listarUsuarios();
+      break;
       case 'logout':
-         $AuthHelper->logout();
+         $UserController->logout();
          break;
     default: 
         echo('404 Page not found'); 

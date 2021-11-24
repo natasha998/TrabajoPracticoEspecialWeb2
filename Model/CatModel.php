@@ -9,7 +9,7 @@ class CatModel{
      }
 
      function valTablaCategorias(){
-        $sentencia = $this->db->prepare("select * from categoria");
+        $sentencia = $this->db->prepare("SELECT * FROM categoria");
         $sentencia->execute();
         $categorias = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $categorias;
@@ -25,9 +25,9 @@ class CatModel{
      }
 
      function editarCategoria($id,$nombre_c,$tipo_c){
-        $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria = ?, tipo_categoria = ?  WHERE id_categoria=$id");
-        $sentencia->execute(array($nombre_c,$tipo_c));
-     }// no funciona
+        $sentencia = $this->db->prepare("UPDATE categoria SET nombre_categoria = ?, tipo_categoria = ?  WHERE id_categoria=?");
+        $sentencia->execute(array($nombre_c,$tipo_c,$id));
+     }
 
 
      function borrarCategoria($id){

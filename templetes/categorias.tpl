@@ -10,23 +10,21 @@
 					<a href="borrar-cat/{$categoria->id_categoria}" id="borrarCategoria" class="btn">Borrar</a>	
 				</td>
 				<td>
-					<a href="editar-cat/{$categoria->id_categoria}" id="editarCategoria" class="btn">Editar</a>	
+					<a href="editar" id="editarCategoria" class="btn">Editar</a>
+					<h2>Editar Categoria</h2>
+					<form action="editar-cat/{$categoria->id_categoria}" method="POST" id="formulario"> 
+						<label for="categoria">Nombre de la categoria</label>
+						<input type="text" name="nombre_c_ed">
+						<label for="tipo">Tipo</label>
+						<input type="text" name="tipo_c_ed">
+						<input type="submit" value="Cargar Categoria">
+					</form>		
 				</td>
 			</tr>
 		{{/foreach}}
 	</table>
 	
-	<div>
-		<h2>Editar categorias</h2>
-			<form action="editar-cat/{$categoria->id_categoria}" method="POST"> 
-				<label for="categoria">Editar categoria:</label>
-				<input type="text" id="nombre_c" name="nombre_c_ed">
-				<label for="tipo_c">Tipo de categoria</label>
-				<input type="text" id="tipo_c" name="tipo_c_ed">
-				<input type="submit" value="Cargar Categorias">
-			</form>
-	</div>
-
+	
 	<div>
 		<h2>Nueva categorias</h2>
 		<form action="agregar-categorias" method="POST"> 

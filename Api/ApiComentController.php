@@ -11,7 +11,7 @@ class ApiComentController extends ApiController {
      }
 
      function obtenerComentariosDB(){
-      $comentarios = $this->model->getComentarios();
+      $comentarios = $this->model->obtenerComentariosDB();
       return $this->view->response($comentarios, 200);
      }
 

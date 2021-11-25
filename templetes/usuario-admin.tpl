@@ -10,20 +10,24 @@
             <input type="password" placeholder="contraseña"  name="password" required>
             <input type="submit" value="Iniciar">
         </form>
-        <form action="registrar" method="POST">
-            <label for="nombre">Nombre Completo:</label>
-            <input type="text" placeholder="nombre" name="nombre" required>
-            <label for="fechaDeNacimiento">fechaDeNacimiento:</label>
-            <input type="date" name="fechaDeNacimiento" >
-            <label for="email">Email:</label>
-            <input type="text" placeholder="email" name="email" required>
-            <label for="password">Contraseña</label>
-            <input type="password" placeholder="contraseña" name="password" required>
-            <label for="passwordComfirm">Confirmar contraseña:</label>
-            <input type="password" placeholder="contraseña" name="passwordConfirm" required>
-            <input type="submit" value="Registrar">
-        </form>
-        {/if}
+ 
+
+      <div class="registrar">
+            <form action="registrar" method="POST">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" placeholder="nombre" name="nombre" required>
+                <label for="fechaDeNacimiento">fechaDeNacimiento:</label>
+                <input type="date" name="fechaDeNacimiento" >
+                <label for="email">Email:</label>
+                <input type="text" placeholder="email" name="email" required>
+                <label for="password">Contraseña</label>
+                <input type="password" placeholder="contraseña" name="password" required>
+                <label for="passwordComfirm">Confirmar contraseña:</label>
+                <input type="password" placeholder="contraseña" name="passwordConfirm" required>
+                <input type="submit" value="Registrar">
+            </form>
+      </div>
+    {/if}
     {{include file="./footer.tpl"}}
 
 

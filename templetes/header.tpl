@@ -20,8 +20,8 @@
                     <li><a href="home">Home</a></li>
                     <li><a href="categorias">Categorias</a></li>
                     <li><a href="productos">Ver todos los productos</a></li>
-                    <li><a href="login">Inicia Sesión</a></li>
-                    <li><a href="logout">Cerrar Sesión</a></li>
+                    <li><a href="login">Iniciar Sesion</a></li>
+                    <li><a href="logout">Cerrar Sesion</a></li> 
                 </ul>
             </nav>
         </header>

@@ -14,7 +14,7 @@ class ApiComentModel{
         return $comentarios;//solo voy a traer los comentarios de un producto en especial
     }
     public function obtenerComentario($id){
-        $sentencia = $this->db->prepare("SELECT FROM comentario id_coment = $id ");
+        $sentencia = $this->db->prepare("SELECT FROM comentario WHERE id_coment = $id ");
         $sentencia->execute();
         $comentario = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comentario;

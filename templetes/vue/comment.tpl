@@ -11,7 +11,7 @@
                 </div>
                 <div class="comentarioTexto">{{comentario.comentario}}</div>
                 <span class="fecha">{{comentario.fecha}}</span>
-                <input id="eliminarComentario" type="button"
+                <input id="eliminar-comentario" type="button"
                     :data-id_comentario="comentario.id_comentario" value="borrar">
             </li>
         </ul>

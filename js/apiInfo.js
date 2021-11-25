@@ -4,13 +4,12 @@ const API_URL = "api/comentarios";
 
 document.querySelector("#data-send").addEventListener("submit", agregarComentario);
 
+
 let app = new Vue({
     el: "comentarios-vue",
     data: {
         comentarios: [],
-    },methods: {
-       
-    }
+    },
 }); 
 
 async function getComentarios() {
@@ -54,8 +53,8 @@ async function agregarComentario(){
         console.log(e);
     }
 
-    async function borrarComentarioI(){
-        let id_comentario = document.querySelector("#eliminarComentario").dataset.id_comentario;
+    async function borrarComentario(){
+        let id_comentario = document.querySelector("#eliminar-comentario").dataset.id_comentario;
         try{
             let response = await fetch(API_URL+id_comentario,{
                 "method": "delete",
@@ -66,6 +65,7 @@ async function agregarComentario(){
             console.log(e);
         }
     }
+    document.querySelector("#eliminar-comentario").addEventListener("click", borrarComentario);
 
     
 }

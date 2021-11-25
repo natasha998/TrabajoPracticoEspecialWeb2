@@ -32,7 +32,8 @@ class ApiComentController extends ApiController {
 
     function borrarComentario($params = null){
       $idComentario = $params[":ID"];
-      $comentario = $this->model->obtenerComentario($idComentario);//lo llamo para saber si existo y si lo puedo borrar
+      $comentario = $this->model->obtenerComentario($idComentario);
+      //lo llamo para saber si existe y si lo puedo borrar
       if ($comentario) {
           $this->model->borrarComentario($idComentario);
           return $this->view->response("Comentario borrado", 200);

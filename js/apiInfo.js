@@ -5,24 +5,21 @@ const API_URL = "api/comentarios";
 document.querySelector("#data-send").addEventListener("submit", agregarComentario);
 
 let app = new Vue({
-    el: "#comentarios-vue",
+    el: "comentarios-vue",
     data: {
-        comentarios: [], // this->smarty->assign("tareas",  $tareas)
+        comentarios: [],
     },methods: {
        
     }
 }); 
 
 async function getComentarios() {
-    console.log("Estoy en el get")
-    // fetch para traer todas las tareas
+    let id = document.querySelector("#data-prod").dataset.id_producto;
     try {
-        console.log(API_URL);
-        let response = await fetch(API_URL + url);
-        let comentarios = await response.json();
-        app.comentarios = comentarios;
-        console.log("Comentarios"+comentarios);
-
+        let response = await fetch(API_URL + id);
+        let api_comentarios = await response.json();
+        app.comentarios = api_comentarios;
+        console.log( app.comentarios)
     } catch (e) {
         console.log(e);
     }
@@ -34,10 +31,10 @@ async function agregarComentario(){
     e.preventDefault();
     let formData = document.querySelector("#data-prod").dataset.id;
     let comment = {
-        "id_user" :formData.get('data-nombre_user'),
-        "id_producto": formData.get('data-id_usuario'),
-        "comentario": formData.get('coment'),
-        "puntaje":parseInt(formData.get('value'))
+        comentario: document.querySelector("#comentario").value,
+        puntaje: document.querySelector("#puntaje").value,
+        id_producto: app.id_producto,
+        id_user: app.id_user,
     }
     console.log(comment);
        try{
@@ -57,9 +54,10 @@ async function agregarComentario(){
         console.log(e);
     }
 
-    async function borrarComentarioI(id){
+    async function borrarComentarioI(){
+        let id_comentario = document.querySelector("#eliminarComentario").dataset.id_comentario;
         try{
-            let response = await fetch(API_URL+id,{
+            let response = await fetch(API_URL+id_comentario,{
                 "method": "delete",
                 "headers" : {'Content-Type' : 'application/json'}
             });

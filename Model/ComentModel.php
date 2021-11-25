@@ -7,9 +7,9 @@ class ApiComentModel{
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_productos;charset=utf8', 'root', '');
     }
 
-    public function obtenerComentariosDB($id_producto){
-        $sentencia = $this->db->prepare("SELECT * FROM comentario id_producto=?");
-        $sentencia->execute(array($id_producto));
+    public function obtenerComentariosDB(){
+        $sentencia = $this->db->prepare("SELECT * FROM comentario");
+        $sentencia->execute();
         $comentarios = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comentarios;//solo voy a traer los comentarios de un producto en especial
     }

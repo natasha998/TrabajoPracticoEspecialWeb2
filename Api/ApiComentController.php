@@ -10,13 +10,12 @@ class ApiComentController extends ApiController {
         $this->model = new ApiComentModel();
      }
 
-    //  public function getCommentsForProd($params){
-    //      $prod_id = $params[':ID_PROD'];
-    //      $comentarios = $this->model->obtenerComentariosDB($prod_id);
-    //      $this->view->response($comentarios,200);
-    //  }
+     function obtenerComentariosDB(){
+      $comentarios = $this->model->getComentarios();
+      return $this->view->response($comentarios, 200);
+     }
 
-     function getComentario($params) {
+     function getComentario($params = null){
        if(!empty($params)){
           $comentarios = $this->model->obtenerComentariosDB($params[":ID"]);
           return $this->view->response($comentarios ,200);
@@ -36,9 +35,9 @@ class ApiComentController extends ApiController {
       $comentario = $this->model->obtenerComentario($idComentario);//lo llamo para saber si existo y si lo puedo borrar
       if ($comentario) {
           $this->model->borrarComentario($idComentario);
-          return $this->view->response("La tarea con el id=$idComentario fue borrada", 200);
+          return $this->view->response("Comentario borrado", 200);
       } else {
-          return $this->view->response("La tarea con el id=$idComentario no existe", 404);
+          return $this->view->response("el coemntario no existe pruebe con otro", 404);
       }
 
     }
@@ -51,7 +50,7 @@ class ApiComentController extends ApiController {
           if($data){
             return $this->view->response("Comentario agregado con exito", 200);
           }else{
-            return $this->view->response("El comentario no pudo ser borrado", 404);
+            return $this->view->response("El comentario no pudo ser posteado", 404);
           }
         }
       }else{
